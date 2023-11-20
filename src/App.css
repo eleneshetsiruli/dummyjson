@@ -1,0 +1,52 @@
+.hidden {
+  display: hidden;
+}
+.imgcare {
+  background-size: contain;
+  background-image: url("https://c1.wallpaperflare.com/preview/554/1013/118/skincare-coconut-oil-therapy-exotic.jpg");
+  width: 600px;
+  height: 400px;
+  background-repeat: no-repeat;
+  font-family: satisfy;
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+.sunimg {
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/930/581/desktop-wallpaper-face-black-women-model-sunglasses-glasses-graphy-lips-hair-nose-skin-head-color-beauty-eye-neck-hairstyle-shoot-fashion-accessory-vision-care-organ-eyewear-1680x1050-women-wear.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 400px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: satisfy;
+  font-size: 70px;
+}
+.lighting {
+  background-image: url("https://www.industville.co.uk/cdn/shop/collections/Industville_accessories_Humble_Grape_eab74011-cfc4-46d6-8ce9-1b457a45d1a7.jpg?v=1645530878");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  margin: 5px;
+  height: 195px;
+  color: black;
+  font-family: satisfy;
+  font-size: 60px;
+}
+.furniture {
+  background-image: url("https://hips.hearstapps.com/hmg-prod/images/posters-in-cozy-apartment-interior-royalty-free-image-943910360-1534189931.jpg");
+  background-repeat: no-repeat;
+  width: 400px;
+  margin: 5px;
+  height: 195px;
+  background-size: cover;
+  color: black;
+  font-family: satisfy;
+  font-size: 50px;
+}
