@@ -4,20 +4,18 @@ import { Link } from "react-router-dom";
 export const Products = () => {
   const [products, setProducts] = useState([]);
 
-  const [countPage, setCountPage] = useState(10);
   const [params, setParams] = useState({
     limit: 10,
-    skip: 50,
+    skip: 10,
   });
 
-  function handlepagesMore() {
-    setCountPage((prev) => prev + 5);
-    setParams({ ...params, limit: countPage });
+  function handlePagesMore() {
+    setParams({ ...params, limit: params.limit + 5 });
+    console.log(params);
   }
 
-  function handlepagesLess() {
-    setCountPage((prev) => prev - 5);
-    setParams({ ...params, limit: countPage });
+  function handlePagesLess() {
+    setParams({ ...params, limit: params.limit - 5 });
   }
 
   function loadProductsData() {
@@ -41,13 +39,13 @@ export const Products = () => {
       <div className="flex justify-center mb-10 pt-[15px] ">
         <button
           className="w-[150px] bg-gray-300 border-t border-l  rounded-tl-lg p-4 rounded-bl-lg  "
-          onClick={handlepagesLess}
+          onClick={handlePagesLess}
         >
           less
         </button>
         <button
           className="w-[150px] bg-blue-300  border-t border-r  rounded-tr-lg p-4 rounded-br-lg"
-          onClick={handlepagesMore}
+          onClick={handlePagesMore}
         >
           more
         </button>
