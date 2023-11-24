@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { SearchContext } from "../context/SearchContext";
 
 export const SearchContextProvider = ({ children }) => {

@@ -4,7 +4,6 @@ import { CategoryContext } from "../context/CategoryContext";
 export const CategoryContextProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [catValue, setCatValue] = useState("smartphones");
-  console.log(catValue);
 
   function loadCategories() {
     fetch(`https://dummyjson.com/products/category/${catValue}`)

@@ -6,16 +6,19 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "./provider/AuthContextProvider.jsx";
 import { SearchContextProvider } from "./provider/SearchContextProvider.jsx";
 import { CategoryContextProvider } from "./provider/CategoryContextProvider.jsx";
+import { CartContextProvider } from "./provider/CartContextProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CategoryContextProvider>
     <AuthContextProvider>
       <SearchContextProvider>
-        <BrowserRouter>
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>
-        </BrowserRouter>
+        <CartContextProvider>
+          <BrowserRouter>
+            <React.StrictMode>
+              <App />
+            </React.StrictMode>
+          </BrowserRouter>
+        </CartContextProvider>
       </SearchContextProvider>
     </AuthContextProvider>
   </CategoryContextProvider>

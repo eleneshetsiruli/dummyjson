@@ -6,9 +6,12 @@ import { Login } from "./pages/Login";
 import { Products } from "./pages/Products";
 import { Product } from "./pages/Product";
 import { SearchPage } from "./pages/SearchPage";
-import { Header } from "./pages/Header";
+
 import { PageCategories } from "./pages/PageCategories";
 import { Skincare } from "./pages/SkinCare";
+import { Profile } from "./pages/Profile";
+import { Cart } from "./pages/Cart";
+import { Header } from "./pages/Header";
 
 function App() {
   return (
@@ -23,6 +26,8 @@ function App() {
         <Route path="products/:id" element={<Product />} />
         <Route path="search" element={<SearchPage />} />
         <Route path="skincare" element={<Skincare />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="cart" element={<Cart />} />
       </Routes>
     </>
   );

@@ -5,14 +5,13 @@ import useLocalStorage from "../hooks/UseLocalstorage";
 export const AuthContextProvider = ({ children }) => {
   const [auth, setAuth] = useLocalStorage("authorization", {});
 
-  function handleLogIn() {
+  function handleLogIn(data) {
     axios
       .post(
         "https://dummyjson.com/auth/login",
-        {
-          username: "atuny0",
-          password: "9uQFF1Lh",
-        },
+
+        data,
+
         {
           headers: {
             "Content-Type": "application/json",
@@ -20,13 +19,18 @@ export const AuthContextProvider = ({ children }) => {
         }
       )
       .then((res) => {
-        setAuth(res.data.token);
+        setAuth({ ...auth, ...res.data });
       })
+
       .catch((error) => console.error("Error:", error));
   }
 
+  function logOut() {
+    return setAuth({ ...auth, username: "", password: "" });
+  }
+
   return (
-    <AuthContext.Provider value={{ handleLogIn, auth }}>
+    <AuthContext.Provider value={{ handleLogIn, auth, setAuth, logOut }}>
       {children}
     </AuthContext.Provider>
   );

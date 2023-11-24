@@ -7,27 +7,17 @@ export const Finder = () => {
   const { inpValue, setInpValue } = useContext(SearchContext);
   const navigate = useNavigate();
 
-  function handleSearch() {
-    navigate("search");
-    setInpValue("");
-  }
-
   return (
-    <>
-      <div className="w-[500px] h-[30px] bg-white flex justify-between rounded-[20px] ">
+    <div className="flex items-center justify-center p-[20px]">
+      <div className=" w-[500px] h-[30px] bg-white  rounded-[20px] ">
         <input
-          className="rounded-[20px] w-[100%] border-0 "
+          className="p-5 italic rounded-[20px] w-[100%] h-[40px] border-0  "
           type="text"
           onChange={(ev) => setInpValue(ev.target.value)}
           value={inpValue}
+          placeholder="search here"
         />
-        <button
-          onClick={handleSearch}
-          className="bg-gray-500 w-[120px] rounded-[20px]"
-        >
-          search
-        </button>
       </div>
-    </>
+    </div>
   );
 };

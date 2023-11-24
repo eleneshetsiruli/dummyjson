@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,6 @@ export const Products = () => {
 
   function handlePagesMore() {
     setParams({ ...params, limit: params.limit + 5 });
-    console.log(params);
   }
 
   function handlePagesLess() {
@@ -31,7 +31,7 @@ export const Products = () => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-20 justify-center items-center pt-20">
+      <div className="flex flex-wrap gap-20 justify-center items-center pt-20 ">
         {products.map((el) => (
           <ProductCard data={el} key={el.id} />
         ))}
@@ -55,9 +55,11 @@ export const Products = () => {
 };
 
 export function ProductCard({ data }) {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <>
-      <div className="w-[220px] h-[300px] flex flex-col justify-between shadow-md p-2 mb-6 bg-white rounded-md  ">
+      <div className="w-[220px] h-[340px] flex flex-col justify-between shadow-md p-2 mb-6  rounded-[20px]  ">
         <Link to={`/products/${data.id}`}>
           <img
             className="w-[100%] h-[200px]"
@@ -70,7 +72,10 @@ export function ProductCard({ data }) {
         <h2 className="text-gray-400">{data.brand}</h2>
         <div className="flex justify-between">
           <span>{data.price}$</span>
-          <button className="bg-blue-300 text-white w-[60px] rounded-[20px]">
+          <button
+            onClick={() => addToCart(data)}
+            className="bg-blue-300 text-white w-[60px] rounded-[20px]"
+          >
             add
           </button>
         </div>
