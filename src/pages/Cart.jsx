@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useReducer } from "react";
 import { CartContext } from "../context/CartContext";
 
 export const Cart = () => {
@@ -17,6 +17,7 @@ export const Cart = () => {
 };
 function CartProd({ data }) {
   const { removeCart } = useContext(CartContext);
+
   return (
     <>
       <div className="w-[220px] h-[340px] flex flex-col justify-between shadow-md p-2 mb-6  rounded-[20px] ">
@@ -25,6 +26,7 @@ function CartProd({ data }) {
         <h2 className="text-gray-400">{data.brand}</h2>
         <div className="flex justify-between">
           <span>{data.price}$</span>
+
           <button
             onClick={() => removeCart(data.id)}
             className=" w-[80px] bg-red-600 text-white rounded-[20px]"

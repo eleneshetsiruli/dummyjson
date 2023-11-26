@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,7 @@ export const Carusel = () => {
   };
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center carusel">
       <FaArrowAltCircleLeft
         className="opacity-50 cursor-pointer hover:opacity-100"
         onClick={slideLeft}

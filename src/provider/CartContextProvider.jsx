@@ -17,6 +17,7 @@ export const CartContextProvider = ({ children }) => {
   const removeCart = (id) => {
     const deleteItems = cartItems.filter((el) => el.id !== id);
     setCartItems(deleteItems);
+    localStorage.setItem("cartItems", JSON.stringify(deleteItems));
   };
 
   return (

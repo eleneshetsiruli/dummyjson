@@ -34,7 +34,8 @@ export const Profile = () => {
                   Full name
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {userInfo.firstName}
+                  <input type=" text" placeholder={userInfo.firstName} />
+                  <span className="text-green-500">✮</span>
                 </dd>
               </div>
               <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -42,7 +43,8 @@ export const Profile = () => {
                   Last Name
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {userInfo.lastName}
+                  <input type=" text" placeholder={userInfo.lastName} />
+                  <span className="text-green-500">✮</span>
                 </dd>
               </div>
               <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -50,7 +52,8 @@ export const Profile = () => {
                   Email address
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {userInfo.email}
+                  <div> {userInfo.email}</div>
+                  <span className="text-red-500 italic">cannot be changed</span>
                 </dd>
               </div>
               <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -58,7 +61,8 @@ export const Profile = () => {
                   Age
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {userInfo.age} years old
+                  <input type=" text" placeholder={userInfo.age} />
+                  <span className="text-green-500">✮</span>
                 </dd>
               </div>
               <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -66,7 +70,8 @@ export const Profile = () => {
                   Gender
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {userInfo.gender}
+                  <input type=" text" placeholder={userInfo.gender} />
+                  <span className="text-green-500">✮</span>
                 </dd>
               </div>
               <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -74,7 +79,8 @@ export const Profile = () => {
                   Ip
                 </dt>
                 <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                  {userInfo.ip}
+                  <div>{userInfo.ip}</div>
+                  <span className="text-red-500 italic">cannot be changed</span>
                 </dd>
               </div>
             </dl>
@@ -83,7 +89,8 @@ export const Profile = () => {
                 MacAddress
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {userInfo.macAddress}
+                <div>{userInfo.macAddress}</div>
+                <span className="text-red-500 italic">cannot be changed</span>
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -91,7 +98,8 @@ export const Profile = () => {
                 Domain
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {userInfo.domain}
+                <div>{userInfo.domain}</div>
+                <span className="text-red-500 italic">cannot be changed</span>
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -99,7 +107,8 @@ export const Profile = () => {
                 MaidenName
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {userInfo.maidenName}
+                <input type=" text" placeholder={userInfo.maidenName} />
+                <span className="text-green-500">✮</span>
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -107,23 +116,26 @@ export const Profile = () => {
                 Phone
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {userInfo.phone}
+                <input type=" text" placeholder={userInfo.phone} />
+                <span className="text-green-500">✮</span>
               </dd>
-            </div>{" "}
+            </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-900">
                 University
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {userInfo.university}
+                <input type=" text" placeholder={userInfo.university} />
+                <span className="text-green-500">✮</span>
               </dd>
-            </div>{" "}
+            </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-900">
                 UserAgent
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                {userInfo.userAgent}
+                <div>{userInfo.userAgent}</div>
+                <span className="text-red-500 italic">cannot be changed</span>
               </dd>
             </div>
             <Link

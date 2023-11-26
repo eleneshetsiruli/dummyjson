@@ -1,15 +1,30 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { ProductCard } from "./Products";
+
+import { Categories } from "./Categories";
 
 export const Header = () => {
   const { cartItems } = useContext(CartContext);
   const { auth, logOut } = useContext(AuthContext);
+  const [searchValue, setSearchValue] = useState("");
+  const [searchingData, setSearchingData] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  console.log(searchingData);
+  const onSearch = (searchTerm) => {
+    fetch(`https://dummyjson.com/products/search?q=${searchTerm}`)
+      .then((res) => res.json())
+      .then((data) => setSearchingData(data.products));
+    setSearchValue("");
+    setOpen(!open);
+  };
 
   return (
     <>
-      <div className="bg-slate-900  flex items-center h-[60px] text-white gap-20 justify-around">
+      <div className="bg-slate-900  flex items-center h-[60px] text-white gap-20 justify-around relative text-[18px] pl-[20px] pr-[20px]">
         <Link to={"/"}>
           <img
             className="w-[50px] rounded-[100px]"
@@ -18,34 +33,72 @@ export const Header = () => {
           />
         </Link>
         <div className="flex gap-20 ">
-          <Link to={"/"} className="hover:text-orange-300">
+          <NavLink to={"/"} className="hover:text-orange-300">
             Home
+          </NavLink>
+          <Link className="hover:text-orange-300">
+            <Categories />
           </Link>
-          <Link className="hover:text-orange-300">Company</Link>
-          <Link to={"products"} className="hover:text-orange-300">
+          <NavLink to={"company"} className="hover:text-orange-300">
+            Company
+          </NavLink>
+          <NavLink to={"products"} className="hover:text-orange-300">
             Products
-          </Link>
-          <input
-            type="text"
-            className="w-[350px] text-orange-400 rounded-[20px] p-2"
-          />
-          <Link to={"cart"}>
-            <div className="text-[22px] flex items-center">
-              🛒
-              <span className="text-[15px] text-orange-300 ">
-                ({cartItems.length})
-              </span>
-            </div>
-          </Link>
+          </NavLink>
+          <div className="flex bg-white w-[350px] text-orange-400 rounded-[20px] h-[40px] justify-between ">
+            <input
+              type="text"
+              className=" inp p-2 w-full h-full "
+              onChange={(ev) => setSearchValue(ev.target.value)}
+              value={searchValue}
+            />
+            <button
+              onClick={() => onSearch(searchValue)}
+              className="btn text-blue-800 italic "
+            >
+              search
+            </button>
+          </div>
+          <div className={open ? "dropdown" : "hidden"}>
+            {searchingData.map((el) => (
+              <div
+                onClick={() => setOpen(false)}
+                className="dropdown-row"
+                key={el.id}
+              >
+                <ProductCard key={el.id} data={el} />
+              </div>
+            ))}
+            <button
+              onClick={() => setOpen(!open)}
+              className=" border-b border-l rounded-bl-2xl p-4 text-black bg-red-700 h-[30px] w-[30px] text-white absolute top-0 right-0 flex justify-center items-center italic"
+            >
+              X
+            </button>
+          </div>
+          <div className="flex items-center gap-4">
+            <Link to={"cart"}>
+              <div className="text-[22px] flex items-center gap-1">
+                🛒
+                <span className="text-[15px] text-orange-300 ">
+                  {cartItems.length}
+                </span>
+              </div>
+            </Link>
+
+            <Link to={"profile"} className="flex items-center text-[22px]">
+              👤
+            </Link>
+          </div>
         </div>
         <Link
           to={"login"}
           className="hover:text-red-600 border-solid border-white"
         >
           {auth.username === "atuny0" ? (
-            <button onClick={logOut}>logOut</button>
+            <button onClick={logOut}>log-Out</button>
           ) : (
-            <button>logIn</button>
+            <button>log-In</button>
           )}
         </Link>
       </div>

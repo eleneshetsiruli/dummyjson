@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import { SortByPrice } from "../components/SortByPrice";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
@@ -9,6 +10,13 @@ export const Products = () => {
     limit: 10,
     skip: 10,
   });
+
+  function filterPrice(value, maxValue) {
+    const filteredPriceItems = products
+      .map((el) => el)
+      .filter((item) => item.price <= value && item.price >= maxValue);
+    setProducts(filteredPriceItems);
+  }
 
   function handlePagesMore() {
     setParams({ ...params, limit: params.limit + 5 });
@@ -30,7 +38,8 @@ export const Products = () => {
   }, [params]);
 
   return (
-    <>
+    <div className="flex flex-col items-center">
+      <SortByPrice data={filterPrice} />
       <div className="flex flex-wrap gap-20 justify-center items-center pt-20 ">
         {products.map((el) => (
           <ProductCard data={el} key={el.id} />
@@ -50,7 +59,7 @@ export const Products = () => {
           more
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -72,6 +81,7 @@ export function ProductCard({ data }) {
         <h2 className="text-gray-400">{data.brand}</h2>
         <div className="flex justify-between">
           <span>{data.price}$</span>
+
           <button
             onClick={() => addToCart(data)}
             className="bg-blue-300 text-white w-[60px] rounded-[20px]"

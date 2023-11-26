@@ -1,7 +1,12 @@
+* {
+  font-family: "Dosis", sans-serif;
+}
+
 .skinImg {
   width: 700px;
   height: 500px;
-  background-image: url("https://c1.wallpaperflare.com/preview/332/555/799/cosmetic-skincare-female-natural.jpg");
+  color: white;
+  background-image: url("https://hips.hearstapps.com/hmg-prod/images/kemble-interiors-palm-beach-11-1675978401.jpg?crop=1.00xw:0.668xh;0,0.279xh&resize=1200:*");
   background-size: cover;
   border-radius: 20px;
   margin: 10px;
@@ -9,12 +14,15 @@
   font-size: 80px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 1.9) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .homeImg {
-  background-image: url("https://rare-gallery.com/thumbs/742465-Interior-Sofa-Wall.jpg");
+  background-image: url("https://media.istockphoto.com/id/1357956420/photo/cute-lady-using-cosmetic-product-in-studio.jpg?s=612x612&w=0&k=20&c=Z5YIgH1Wv1zjOrJwjvtnQIGlitN3EGHMuKkiUXZqrUU=");
   background-size: cover;
-
+  background-repeat: no-repeat;
   border-radius: 20px;
   margin: 10px;
   font-family: "Ephesis", cursive;
@@ -23,19 +31,168 @@
   justify-content: center;
   align-items: flex-start;
   width: 700px;
-  height: 350px;
+  height: 340px;
   color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 1.9) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .links {
   display: flex;
   flex-direction: column;
-  font-family: "Ephesis", cursive;
-  font-size: 24px;
+
+  font-size: 21px;
   color: rgb(8, 8, 74);
 }
+
 .cartText {
   color: gray;
   font-family: "Ephesis", cursive;
   font-size: 54px;
   text-align: center;
+}
+.dropdown {
+  background-color: white;
+  display: flex;
+  top: 60px;
+  right: 20%;
+  position: absolute;
+  width: 800px;
+  z-index: 2;
+  justify-content: center;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 6px;
+}
+.dropdown:empty {
+  border: none;
+}
+.dropdown-row {
+  cursor: pointer;
+  text-align: start;
+  margin: 4px;
+}
+.hidden {
+  display: none;
+}
+.link-count {
+  margin-top: 10px;
+  box-shadow: rgb(70, 121, 165) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+.carusel {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.btn {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 100px;
+}
+.inp {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: rgb(15, 25, 34) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+.font {
+  font-family: "Ephesis", cursive;
+}
+
+.animated-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.animated-text {
+  font-size: 2em;
+  animation: colorChange 4s infinite alternate, slideIn 2s ease-in-out infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    color: red;
+  }
+  50% {
+    color: blue;
+  }
+  100% {
+    color: green;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+.active {
+  color: orange;
+}
+.category-box {
+  box-shadow: rgba(240, 46, 170, 0.4) -5px 5px,
+    rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px,
+    rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+  font-size: 17px;
+}
+.category-box :hover {
+  text-decoration: underline;
+}
+.sortinp {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  width: 50%;
+}
+.animeSale {
+  position: relative;
+  color: hsl(0, 59%, 46%);
+  font-weight: bold !important;
+  font-family: "Anonymous Pro", monospace !important;
+  letter-spacing: 7px !important;
+  overflow: hidden;
+  border-right: 5px solid hsl(0, 57%, 48%);
+  white-space: nowrap;
+  animation: typewriter 2s steps(44) 1s 1 normal both,
+    blinkTextCursor 600ms infinite;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  padding-left: 50px;
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 310px;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: hsl(0, 0%, 80%);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+.foot {
+  box-shadow: rgba(15, 15, 15, 10.9) 4px 1px 4px;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  font-size: larger;
+}
+.foot-icon {
+  display: flex;
+  gap: 10px;
 }

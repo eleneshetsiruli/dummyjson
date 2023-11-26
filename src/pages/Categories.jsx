@@ -2,18 +2,24 @@ import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { CategoryContext } from "../context/CategoryContext";
+import { FaChevronDown } from "react-icons/fa";
 
 export const Categories = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [ishidden, setIsHidden] = useState(true);
   const [categories, setCatValue] = useContext(CategoryContext);
   return (
     <>
       <div>
-        <div onClick={() => setIsOpen(!isOpen)}>
-          <FaBars className="h-[40px]" />
+        <div onClick={() => setIsHidden(!ishidden)}>
+          <div className="flex items-center gap-2">
+            <span>categories</span> <FaChevronDown />
+          </div>
         </div>
-        <div className={isOpen ? "hidden" : "active"}>
-          <div className=" text-gray-600 flex flex-col absolute bg-white w-[300px] h-[420px] gap-6 rounded-[10px] items-center">
+        <div className={ishidden ? "hidden" : "active"}>
+          <div
+            onClick={() => setIsHidden(!ishidden)}
+            className=" category-box top-[60px] right-[65%] text-gray-600 flex flex-col absolute bg-white w-[300px] h-[420px] gap-6 rounded-[10px] items-center"
+          >
             <NavLink
               to={"categories"}
               onClick={() => setCatValue("smartphones")}
@@ -38,9 +44,7 @@ export const Categories = () => {
             >
               🕶️sunglasses
             </NavLink>
-            <NavLink to={"categories"} onClick={() => setCatValue("motorcyle")}>
-              🛵motorcyle
-            </NavLink>
+
             <NavLink
               to={"categories"}
               onClick={() => setCatValue("automotive")}

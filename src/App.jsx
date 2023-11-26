@@ -12,6 +12,7 @@ import { Skincare } from "./pages/SkinCare";
 import { Profile } from "./pages/Profile";
 import { Cart } from "./pages/Cart";
 import { Header } from "./pages/Header";
+import { Company } from "./pages/Company";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="skincare" element={<Skincare />} />
         <Route path="profile" element={<Profile />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="company" element={<Company />} />
       </Routes>
     </>
   );
