@@ -1,10 +1,5 @@
 import { Header } from "./Header";
 
 export const ProductsLayOut = ({ Children }) => {
-  return (
-    <div>
-      <Header />
-      {Children}
-    </div>
-  );
+  return <div>{Children}</div>;
 };

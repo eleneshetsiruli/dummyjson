@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+
 import { useContext, useState } from "react";
 import { CategoryContext } from "../context/CategoryContext";
 import { FaChevronDown } from "react-icons/fa";
@@ -18,7 +18,7 @@ export const Categories = () => {
         <div className={ishidden ? "hidden" : "active"}>
           <div
             onClick={() => setIsHidden(!ishidden)}
-            className=" category-box top-[60px] right-[65%] text-gray-600 flex flex-col absolute bg-white w-[300px] h-[420px] gap-6 rounded-[10px] items-center"
+            className=" category-box top-[60px] right-[65%] text-gray-600 flex flex-col absolute bg-white w-[300px] h-[420px] gap-6 rounded-[10px] p-5"
           >
             <NavLink
               to={"categories"}

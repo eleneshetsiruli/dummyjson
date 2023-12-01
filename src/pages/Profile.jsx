@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 
 export const Profile = () => {
   const [userInfo, setUserInfo] = useState({});
+  const [editedInfo, setEditedInfo] = useState({
+    name: "Terry",
+    lastName: "Medhurst",
+    age: 50,
+    gender: "male",
+    maidenName: "smitham",
+    Phone: "+637916758914",
+    university: "Capital University",
+  });
 
   function loadUserInformation() {
     fetch("https://dummyjson.com/users/1")
@@ -34,7 +43,17 @@ export const Profile = () => {
                   Full name
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  <input type=" text" placeholder={userInfo.firstName} />
+                  <input
+                    onChange={(ev) =>
+                      setEditedInfo({
+                        ...editedInfo,
+                        name: ev.target.value,
+                      })
+                    }
+                    value={editedInfo.name}
+                    type="text"
+                  />
+
                   <span className="text-green-500">✮</span>
                 </dd>
               </div>
@@ -43,7 +62,17 @@ export const Profile = () => {
                   Last Name
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  <input type=" text" placeholder={userInfo.lastName} />
+                  <input
+                    onChange={(ev) =>
+                      setEditedInfo({
+                        ...editedInfo,
+                        lastName: ev.target.value,
+                      })
+                    }
+                    value={editedInfo.lastName}
+                    type=" text"
+                  />
+
                   <span className="text-green-500">✮</span>
                 </dd>
               </div>
@@ -61,7 +90,16 @@ export const Profile = () => {
                   Age
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  <input type=" text" placeholder={userInfo.age} />
+                  <input
+                    onChange={(ev) =>
+                      setEditedInfo({
+                        ...editedInfo,
+                        age: ev.target.value,
+                      })
+                    }
+                    value={editedInfo.age}
+                    type=" text"
+                  />
                   <span className="text-green-500">✮</span>
                 </dd>
               </div>
@@ -70,7 +108,16 @@ export const Profile = () => {
                   Gender
                 </dt>
                 <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  <input type=" text" placeholder={userInfo.gender} />
+                  <input
+                    onChange={(ev) =>
+                      setEditedInfo({
+                        ...editedInfo,
+                        gender: ev.target.value,
+                      })
+                    }
+                    value={editedInfo.gender}
+                    type=" text"
+                  />
                   <span className="text-green-500">✮</span>
                 </dd>
               </div>
@@ -107,7 +154,16 @@ export const Profile = () => {
                 MaidenName
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                <input type=" text" placeholder={userInfo.maidenName} />
+                <input
+                  onChange={(ev) =>
+                    setEditedInfo({
+                      ...editedInfo,
+                      maidenName: ev.target.value,
+                    })
+                  }
+                  value={editedInfo.maidenName}
+                  type=" text"
+                />
                 <span className="text-green-500">✮</span>
               </dd>
             </div>
@@ -116,7 +172,16 @@ export const Profile = () => {
                 Phone
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                <input type=" text" placeholder={userInfo.phone} />
+                <input
+                  onChange={(ev) =>
+                    setEditedInfo({
+                      ...editedInfo,
+                      phone: ev.target.value,
+                    })
+                  }
+                  value={editedInfo.Phone}
+                  type=" text"
+                />
                 <span className="text-green-500">✮</span>
               </dd>
             </div>
@@ -125,7 +190,16 @@ export const Profile = () => {
                 University
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                <input type=" text" placeholder={userInfo.university} />
+                <input
+                  onChange={(ev) =>
+                    setEditedInfo({
+                      ...editedInfo,
+                      university: ev.target.value,
+                    })
+                  }
+                  value={editedInfo.university}
+                  type=" text"
+                />
                 <span className="text-green-500">✮</span>
               </dd>
             </div>

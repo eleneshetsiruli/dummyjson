@@ -8,10 +8,14 @@ export const CartContextProvider = ({ children }) => {
   });
 
   const addToCart = (product) => {
-    const newCartItems = [...cartItems, product];
-    setCartItems(newCartItems);
+    const isProductInCart = cartItems.some((item) => item.id === product.id);
 
-    localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+    if (!isProductInCart) {
+      const newCartItems = [...cartItems, product];
+      setCartItems(newCartItems);
+
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+    }
   };
 
   const removeCart = (id) => {

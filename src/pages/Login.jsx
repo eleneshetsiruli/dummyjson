@@ -6,7 +6,6 @@ export const Login = () => {
   const navigate = useNavigate();
   const { handleLogIn, auth } = useContext(AuthContext);
   const [data, setData] = useState({ username: "", password: "" });
-  console.log(auth);
 
   function myLoginFunc() {
     handleLogIn(data);

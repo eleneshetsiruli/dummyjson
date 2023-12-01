@@ -26,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   function logOut() {
-    return setAuth({ ...auth, username: "", password: "" });
+    return setAuth({ ...auth, token: null });
   }
 
   return (

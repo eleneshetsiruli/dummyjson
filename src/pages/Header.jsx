@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -8,7 +8,7 @@ import { Categories } from "./Categories";
 
 export const Header = () => {
   const { cartItems } = useContext(CartContext);
-  const { auth, logOut } = useContext(AuthContext);
+  const { auth, logOut, setAuth } = useContext(AuthContext);
   const [searchValue, setSearchValue] = useState("");
   const [searchingData, setSearchingData] = useState([]);
   const [open, setOpen] = useState(false);
@@ -91,16 +91,7 @@ export const Header = () => {
             </Link>
           </div>
         </div>
-        <Link
-          to={"login"}
-          className="hover:text-red-600 border-solid border-white"
-        >
-          {auth.username === "atuny0" ? (
-            <button onClick={logOut}>log-Out</button>
-          ) : (
-            <button>log-In</button>
-          )}
-        </Link>
+        {auth.token && <button onClick={logOut}>log out</button>}
       </div>
     </>
   );
